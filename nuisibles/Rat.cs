@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-class Rat
+class Rat : Nuisible
 {
     public Rat()
     {
