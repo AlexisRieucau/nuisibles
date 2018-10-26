@@ -9,6 +9,8 @@ class Rat : Nuisible
 {
     public Rat()
     {
-
+        base.type = "rat";
+        base.vitesseX = 2;
+        base.vitesseY = 2;
     }
 }

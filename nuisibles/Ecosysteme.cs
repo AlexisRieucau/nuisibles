@@ -10,9 +10,16 @@ class Ecosysteme
 
     public Ecosysteme(ITypeEcosysteme typeEco)
     {
-        foreach(Nuisible element in nuisibles)
+        typeEco.Peupler(nuisibles);
+        for (int i = 0; i < 100; i++)
         {
-
+            Console.Write("------ Tick " + i + " ------\n\n");
+            foreach (Nuisible element in nuisibles)
+            {
+                Console.Write("Type = " + element.type + "\t Position = " + element.posX + "," + element.posY + " \t Mort ? " + element.mort +"\n");
+                element.Deplacement();
+            }
+            Console.Write("\n");
         }
     }
 }

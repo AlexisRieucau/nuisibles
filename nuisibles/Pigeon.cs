@@ -9,7 +9,9 @@ class Pigeon : Nuisible
 {
     public Pigeon()
     {
-
+        base.type = "pigeon";
+        base.vitesseX = 3;
+        base.vitesseY = 3;
     }
 }
 

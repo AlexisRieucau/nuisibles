@@ -8,7 +8,9 @@ class Zombie : Nuisible
 {
     public Zombie()
     {
-
+        base.type = "zombie";
+        base.vitesseX = 1;
+        base.vitesseY = 1;
     }
 }
 
