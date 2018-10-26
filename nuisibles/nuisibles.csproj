@@ -57,12 +57,15 @@
     <Compile Include="Fenetre.Designer.cs">
       <DependentUpon>Fenetre.cs</DependentUpon>
     </Compile>
+    <Compile Include="IRegleGestion.cs" />
     <Compile Include="ITypeEcosysteme.cs" />
     <Compile Include="Nuisible.cs" />
     <Compile Include="Pigeon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rat.cs" />
+    <Compile Include="ReglePigeonRat.cs" />
+    <Compile Include="RegleZombie.cs" />
     <Compile Include="UmbrellaCorp.cs" />
     <Compile Include="Zombie.cs" />
   </ItemGroup>

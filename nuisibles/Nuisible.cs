@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 class Nuisible
 {
-    public int posX;
-    public int posY;
-    public int vitesseX;
-    public int vitesseY;
-    public bool mort = false;
+    public float posX;
+    public float posY;
+    public float posFuturX;
+    public float posFuturY;
+    public float vitesseX;
+    public float vitesseY;
     public string type;
 
     private Random rand = new Random();
-    private int choix = 0;
+    private readonly float critereDeCollision = 1.0F;
 
     public Nuisible()
     {
@@ -23,40 +24,56 @@ class Nuisible
         posY = StaticRandom.tirage(0,500);
     }
 
-    public void Deplacement()
+    public void Deplacement(List<Nuisible> nuisibles)
     {
-        choix = StaticRandom.tirage(0, 2); ;
-        switch (choix)
+        switch (StaticRandom.tirage(0, 2))
         {
             case 0:
-                if (posX < 497)
+                if (posX + vitesseX < 500)
                 {
-                    posX += vitesseX;
+                    posFuturX = posX + vitesseX;
                 }
                 break;
             case 1:
-                if (posX > 3)
+                if (posX - vitesseX > 0)
                 {
-                    posX -= vitesseX;
+                    posFuturX = posX - vitesseX;
                 }
                 break;
         }
-        choix = StaticRandom.tirage(0, 2); ;
-        switch (choix)
+        switch (StaticRandom.tirage(0, 2))
         {
             case 0:
-                if (posY < 497)
+                if (posY + vitesseY < 500)
                 {
-                    posY += vitesseY;
+                    posFuturY = posY + vitesseY;
                 }
                 break;
             case 1:
-                if (posY > 3)
+                if (posY - vitesseY > 0)
                 {
-                    posY -= vitesseY;
+                    posFuturY = posY - vitesseY;
                 }
                 break;
         }
+
+        for(int i = 0; i < vitesseX; i++)
+        {
+            posX += (posFuturX - posX) / vitesseX;
+            posY += (posFuturY - posY) / vitesseY;
+            foreach(Nuisible element in nuisibles)
+            {
+                if(Math.Abs(element.posX - this.posX) <= 1 && Math.Abs(element.posY - this.posY) <= 1)
+                {
+                    return;
+                }
+            }
+        }
+    }
+
+    public bool Collision(Nuisible nuisible)
+    {
+        return Math.Sqrt(Math.Pow(this.posX - nuisible.posX,2) + Math.Pow(this.posY - nuisible.posY, 2)) <= critereDeCollision;
     }
 }
 
