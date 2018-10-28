@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 interface IRegleGestion
 {
-    void Regles(List<Nuisible> nuisibles, Nuisible nuisible);
+    List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible);
 }

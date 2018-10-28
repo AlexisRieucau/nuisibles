@@ -13,5 +13,13 @@ class Pigeon : Nuisible
         base.vitesseX = 3.0F;
         base.vitesseY = 3.0F;
     }
+    public Pigeon(float x, float y)
+    {
+        base.type = "pigeon";
+        base.vitesseX = 3.0F;
+        base.vitesseY = 3.0F;
+        base.posX = x;
+        base.posY = y;
+    }
 }
 

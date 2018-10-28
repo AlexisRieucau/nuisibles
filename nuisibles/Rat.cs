@@ -13,4 +13,12 @@ class Rat : Nuisible
         base.vitesseX = 2.0F;
         base.vitesseY = 2.0F;
     }
+    public Rat(float x, float y)
+    {
+        base.type = "rat";
+        base.vitesseX = 2.0F;
+        base.vitesseY = 2.0F;
+        base.posX = x;
+        base.posY = y;
+    }
 }

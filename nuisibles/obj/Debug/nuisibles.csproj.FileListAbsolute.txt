@@ -5,3 +5,10 @@ C:\Users\leale\Documents\Cours\Ynov\B3\Design Pattern\TP_Design_Patterns\TP fina
 C:\Users\leale\Documents\Cours\Ynov\B3\Design Pattern\TP_Design_Patterns\TP final\nuisibles\nuisibles\obj\Debug\nuisibles.exe
 C:\Users\leale\Documents\Cours\Ynov\B3\Design Pattern\TP_Design_Patterns\TP final\nuisibles\nuisibles\obj\Debug\nuisibles.pdb
 C:\Users\leale\Documents\Cours\Ynov\B3\Design Pattern\TP_Design_Patterns\TP final\nuisibles\nuisibles\obj\Debug\nuisibles.csprojAssemblyReference.cache
+C:\Users\leale\Desktop\Programmation\C#\nuisibles\nuisibles\nuisibles\bin\Debug\nuisibles.exe.config
+C:\Users\leale\Desktop\Programmation\C#\nuisibles\nuisibles\nuisibles\bin\Debug\nuisibles.exe
+C:\Users\leale\Desktop\Programmation\C#\nuisibles\nuisibles\nuisibles\bin\Debug\nuisibles.pdb
+C:\Users\leale\Desktop\Programmation\C#\nuisibles\nuisibles\nuisibles\obj\Debug\nuisibles.csprojAssemblyReference.cache
+C:\Users\leale\Desktop\Programmation\C#\nuisibles\nuisibles\nuisibles\obj\Debug\nuisibles.csproj.CoreCompileInputs.cache
+C:\Users\leale\Desktop\Programmation\C#\nuisibles\nuisibles\nuisibles\obj\Debug\nuisibles.exe
+C:\Users\leale\Desktop\Programmation\C#\nuisibles\nuisibles\nuisibles\obj\Debug\nuisibles.pdb
