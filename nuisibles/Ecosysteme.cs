@@ -42,7 +42,8 @@ class Ecosysteme
                     nuisiblesTampon.AddRange(regle.Regles(nuisiblesTampon, nuisible));
                     nuisiblesTampon.RemoveRange(0,200);
                 }*/
-                nuisiblesTampon.AddRange(new RegleZombie().Regles(nuisiblesTampon, nuisible));
+                //nuisiblesTampon.AddRange(new RegleZombie().Regles(nuisiblesTampon, nuisible));
+                nuisiblesTampon.AddRange(new ReglePigeonRat().Regles(nuisiblesTampon, nuisible));
                 nuisiblesTampon.RemoveRange(0, 200);
                 System.Threading.Thread.Sleep(10);
             }
