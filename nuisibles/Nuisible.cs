@@ -59,8 +59,8 @@ class Nuisible
 
         for(int i = 0; i < vitesseX; i++)
         {
-            posX += (posFuturX - posX) / vitesseX;
-            posY += (posFuturY - posY) / vitesseY;
+            posX += (float)Math.Round((posFuturX - posX) / vitesseX);
+            posY += (float)Math.Round((posFuturY - posY) / vitesseY);
             foreach(Nuisible element in nuisibles)
             {
                 if(Math.Abs(element.posX - this.posX) <= 1 && Math.Abs(element.posY - this.posY) <= 1)

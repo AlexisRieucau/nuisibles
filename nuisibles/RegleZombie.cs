@@ -10,24 +10,34 @@ class RegleZombie : IRegleGestion
     {
         List<Nuisible> nuisibles_bis = new List<Nuisible>();
         int memoireIndex = -1; // retenir l'index quand on doit modifier un objet qui a un index > a l'index actuellement analysé
+        float[] memoirePos = new float[2] {-1, -1};
         foreach (Nuisible autreNuisible in nuisibles)
         {
-            if (nuisible.Collision(autreNuisible))
+            if (nuisibles.IndexOf(autreNuisible) >= 0 && nuisibles.IndexOf(nuisible) >= 0)
             {
-                if (nuisible.type.Equals("zombie") ^ autreNuisible.type.Equals("zombie"))
+                if (nuisible.Collision(autreNuisible))
                 {
-                    if (nuisible.type.Equals("zombie"))
+                    if (nuisible.type.Equals("zombie") ^ autreNuisible.type.Equals("zombie"))
                     {
-                        Console.Write("Le " + autreNuisible.type + " à l'index " + nuisibles.IndexOf(autreNuisible) + " est contaminé par le " + nuisible.type + " à l'index " + nuisibles.IndexOf(nuisible) + " !\n");
-                        nuisibles_bis.Insert(nuisibles.IndexOf(autreNuisible), new Zombie(nuisible.posX, nuisible.posY));
-                        System.Threading.Thread.Sleep(5000);
+                        if (nuisible.type.Equals("zombie"))
+                        {
+                            Console.Write("Le " + autreNuisible.type + " à l'index " + nuisibles.IndexOf(autreNuisible) + " est contaminé par le " + nuisible.type + " à l'index " + nuisibles.IndexOf(nuisible) + " !\n");
+                            nuisibles_bis.Insert(nuisibles.IndexOf(autreNuisible), new Zombie(nuisible.posX, nuisible.posY));
+                            System.Threading.Thread.Sleep(5000);
+                        }
+                        else if (autreNuisible.type.Equals("zombie"))
+                        {
+                            Console.Write("Le " + autreNuisible.type + " à l'index " + nuisibles.IndexOf(autreNuisible) + " à contaminé le " + nuisible.type + " à l'index " + nuisibles.IndexOf(nuisible) + " !\n");
+                            nuisibles_bis.Insert(nuisibles.IndexOf(autreNuisible), autreNuisible);
+                            memoireIndex = nuisibles.IndexOf(nuisible);
+                            memoirePos[0] = autreNuisible.posX;
+                            memoirePos[1] = autreNuisible.posY;
+                            System.Threading.Thread.Sleep(5000);
+                        }
                     }
-                    else if (autreNuisible.type.Equals("zombie"))
+                    else
                     {
-                        Console.Write("Le " + autreNuisible.type + " à l'index " + nuisibles.IndexOf(autreNuisible) + " à contaminé le " + nuisible.type + " à l'index " + nuisibles.IndexOf(nuisible) + " !\n");
-                        nuisibles_bis.Insert(nuisibles.IndexOf(autreNuisible), nuisibles[nuisibles.IndexOf(autreNuisible)]);
-                        memoireIndex = nuisibles.IndexOf(nuisible);
-                        System.Threading.Thread.Sleep(5000);
+                        nuisibles_bis.Insert(nuisibles.IndexOf(autreNuisible), autreNuisible);
                     }
                 }
                 else
@@ -39,10 +49,11 @@ class RegleZombie : IRegleGestion
             {
                 nuisibles_bis.Insert(nuisibles.IndexOf(autreNuisible), autreNuisible);
             }
-            if (nuisibles.IndexOf(autreNuisible) == memoireIndex)
-            {
-                nuisibles_bis.Insert(memoireIndex, new Zombie(nuisible.posX, nuisible.posY));
-            }
+        }
+        if (memoireIndex >= 0) // transforme le "nuisible" en zombie
+        {
+            nuisibles_bis.RemoveAt(memoireIndex);
+            nuisibles_bis.Insert(memoireIndex, new Zombie(memoirePos[0], memoirePos[1]));
         }
         return nuisibles_bis;
     }
