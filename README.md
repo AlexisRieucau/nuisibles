@@ -1,3 +1,3 @@
 # nuisibles
 # nuisibles
-faire regle 2
+faire pigeons mutants

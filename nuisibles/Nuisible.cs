@@ -14,6 +14,7 @@ class Nuisible
     public float vitesseX;
     public float vitesseY;
     public string type;
+    public bool mort;
 
     private Random rand = new Random();
     private readonly float critereDeCollision = 1.0F;
@@ -22,6 +23,7 @@ class Nuisible
     {
         posX = StaticRandom.tirage(0,500);
         posY = StaticRandom.tirage(0,500);
+        mort = false;
     }
 
     public void Deplacement(List<Nuisible> nuisibles)
@@ -61,9 +63,9 @@ class Nuisible
         {
             posX += (float)Math.Round((posFuturX - posX) / vitesseX);
             posY += (float)Math.Round((posFuturY - posY) / vitesseY);
-            foreach(Nuisible element in nuisibles)
+            foreach(Nuisible nuisible in nuisibles)
             {
-                if(Math.Abs(element.posX - this.posX) <= 1 && Math.Abs(element.posY - this.posY) <= 1)
+                if(this.Collision(nuisible))
                 {
                     return;
                 }

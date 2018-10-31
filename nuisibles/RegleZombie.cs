@@ -13,7 +13,7 @@ class RegleZombie : IRegleGestion
         float[] memoirePos = new float[2] {-1, -1};
         foreach (Nuisible autreNuisible in nuisibles)
         {
-            if (nuisibles.IndexOf(autreNuisible) >= 0 && nuisibles.IndexOf(nuisible) >= 0)
+            if (nuisibles.IndexOf(autreNuisible) >= 0 && nuisibles.IndexOf(nuisible) >= 0 && !autreNuisible.mort)
             {
                 if (nuisible.Collision(autreNuisible))
                 {
@@ -23,7 +23,6 @@ class RegleZombie : IRegleGestion
                         {
                             Console.Write("Le " + autreNuisible.type + " à l'index " + nuisibles.IndexOf(autreNuisible) + " est contaminé par le " + nuisible.type + " à l'index " + nuisibles.IndexOf(nuisible) + " !\n");
                             nuisibles_bis.Insert(nuisibles.IndexOf(autreNuisible), new Zombie(nuisible.posX, nuisible.posY));
-                            System.Threading.Thread.Sleep(5000);
                         }
                         else if (autreNuisible.type.Equals("zombie"))
                         {
@@ -32,8 +31,7 @@ class RegleZombie : IRegleGestion
                             memoireIndex = nuisibles.IndexOf(nuisible);
                             memoirePos[0] = autreNuisible.posX;
                             memoirePos[1] = autreNuisible.posY;
-                            System.Threading.Thread.Sleep(5000);
-                        }
+                         }
                     }
                     else
                     {
