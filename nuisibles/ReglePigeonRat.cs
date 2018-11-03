@@ -43,3 +43,47 @@ class ReglePigeonRat : IRegleGestion
         return nuisibles_bis;
     }
 }
+
+abstract class Decorator : IRegleGestion
+{
+    private IRegleGestion newRegle;
+    
+    public Decorator(IRegleGestion newRegle)
+    {
+        this.newRegle = newRegle;
+    }
+
+    public List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible)
+    {
+        return newRegle.Regles(nuisibles, nuisible);
+    }
+}
+
+class PigeonMutant : Decorator
+{
+    public PigeonMutant(IRegleGestion newRegle)
+        :base(newRegle)
+    {      
+    }
+
+    public List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible)
+    {
+        List<Nuisible> nuisibles_bis = new List<Nuisible>();
+        nuisibles_bis = base.Regles(nuisibles, nuisible);
+        foreach (Nuisible element in nuisibles_bis)
+        {
+            if (element.type.Equals("pigeon") && element.mort == true)
+            {
+                switch (StaticRandom.tirage(0, 2))
+                {
+                    case 0: // pigeon mutant -> survit
+                        element.mort = false;
+                        break;
+                    default: // pigeon normal -> meurt
+                        break;
+                }
+            }
+        }
+        return nuisibles_bis;
+    }
+}

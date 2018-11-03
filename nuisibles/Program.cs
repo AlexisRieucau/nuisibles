@@ -11,7 +11,8 @@ class Program
     {
         Console.Write("Bienvenue dans l'écosystème !\n\n");
 
-        List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new ReglePigeonRat() };
+        //List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new ReglePigeonRat() };
+        List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new PigeonMutant(new ReglePigeonRat()) };
 
         Ecosysteme eco = new Ecosysteme(new Aleatoire(), mesRegles);
 
