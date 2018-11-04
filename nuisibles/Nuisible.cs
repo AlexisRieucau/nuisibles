@@ -15,6 +15,8 @@ class Nuisible
     public float vitesseY;
     public string type;
     public bool mort;
+    public bool mutant;
+    public bool passif;
 
     private Random rand = new Random();
     private readonly float critereDeCollision = 1.0F;
@@ -24,11 +26,38 @@ class Nuisible
         posX = StaticRandom.tirage(0,500);
         posY = StaticRandom.tirage(0,500);
         mort = false;
+        switch(StaticRandom.tirage(0,2))
+        {
+            case 0:
+                mutant = false;
+                break;
+            case 1:
+                mutant = true;
+                break;
+        }
+        if(StaticRandom.tirage(0,10) <= 8) // 20% de passifs
+        {
+            passif = false;
+        }
+        else
+        {
+            passif = true;
+        }
     }
 
     public void Deplacement(List<Nuisible> nuisibles)
     {
-        switch (StaticRandom.tirage(0, 2))
+        List <ITypeNuisible> typeDeNuisible = new List<ITypeNuisible> { new NuisibleNormal(), new NuisiblePassif() };
+        switch(this.passif)
+        {
+            case true:
+                typeDeNuisible[1].Deplacement(nuisibles, this);
+                break;
+            case false:
+                typeDeNuisible[0].Deplacement(nuisibles, this);
+                break;
+        }
+        /*switch (StaticRandom.tirage(0, 2))
         {
             case 0:
                 if (posX + vitesseX < 500)
@@ -70,7 +99,9 @@ class Nuisible
                     return;
                 }
             }
-        }
+        }*/
+
+
     }
 
     public bool Collision(Nuisible nuisible)

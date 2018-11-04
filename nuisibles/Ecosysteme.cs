@@ -20,14 +20,14 @@ class Ecosysteme
             {
                 if (!nuisible.mort)
                 {
-                    Console.Write("Type = " + nuisible.type + "\t Position = " + nuisible.posX + ";" + nuisible.posY + "\t index = " + nuisibles.IndexOf(nuisible) + "\n");
+                    Console.Write("Type = " + nuisible.type + "\t Position = " + nuisible.posX + ";" + nuisible.posY + "\t index = " + nuisibles.IndexOf(nuisible) + "\tpassif ? "+nuisible.passif+"\n");
                     nuisible.Deplacement(nuisibles);
                     foreach (IRegleGestion regle in mesRegles)
                     {
                         nuisiblesTampon.AddRange(regle.Regles(nuisiblesTampon, nuisible));
                         nuisiblesTampon.RemoveRange(0,200);
                     }
-                    System.Threading.Thread.Sleep(10);
+                    //System.Threading.Thread.Sleep(10);
                 }
             }
             nuisibles.AddRange(nuisiblesTampon);

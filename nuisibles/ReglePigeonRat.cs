@@ -31,6 +31,7 @@ class ReglePigeonRat : IRegleGestion
                                 memoireIndex = nuisibles.IndexOf(nuisible);
                                 break;
                         }
+                        //System.Threading.Thread.Sleep(2000);
                     }
                 }
             }
@@ -53,9 +54,10 @@ abstract class Decorator : IRegleGestion
         this.newRegle = newRegle;
     }
 
-    public List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible)
+    virtual public List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible)
     {
         return newRegle.Regles(nuisibles, nuisible);
+        //return new PigeonMutant(newRegle).Regles(nuisibles, nuisible);
     }
 }
 
@@ -66,7 +68,7 @@ class PigeonMutant : Decorator
     {      
     }
 
-    public List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible)
+    public override List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible)
     {
         List<Nuisible> nuisibles_bis = new List<Nuisible>();
         nuisibles_bis = base.Regles(nuisibles, nuisible);
@@ -74,12 +76,14 @@ class PigeonMutant : Decorator
         {
             if (element.type.Equals("pigeon") && element.mort == true)
             {
-                switch (StaticRandom.tirage(0, 2))
+                switch (element.mutant)
                 {
-                    case 0: // pigeon mutant -> survit
+                    case true: // pigeon mutant -> survit
+                        Console.Write("Le pigeon à survécu !\n");
+                        //System.Threading.Thread.Sleep(2000);
                         element.mort = false;
                         break;
-                    default: // pigeon normal -> meurt
+                    case false: // pigeon normal -> meurt
                         break;
                 }
             }

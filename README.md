@@ -1,3 +1,3 @@
 # nuisibles
 # nuisibles
-faire pigeons mutants
+rajouter interface graphique ?

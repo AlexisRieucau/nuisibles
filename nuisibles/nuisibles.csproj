@@ -59,7 +59,10 @@
     </Compile>
     <Compile Include="IRegleGestion.cs" />
     <Compile Include="ITypeEcosysteme.cs" />
+    <Compile Include="ITypeNuisible.cs" />
     <Compile Include="Nuisible.cs" />
+    <Compile Include="NuisibleNormal.cs" />
+    <Compile Include="NuisiblePassif.cs" />
     <Compile Include="Pigeon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

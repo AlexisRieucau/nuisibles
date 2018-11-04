@@ -11,10 +11,10 @@ class Program
     {
         Console.Write("Bienvenue dans l'écosystème !\n\n");
 
-        //List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new ReglePigeonRat() };
-        List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new PigeonMutant(new ReglePigeonRat()) };
+        //List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new ReglePigeonRat() }; // Ecosysteme normal
+        List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new PigeonMutant(new ReglePigeonRat()) }; // Pigeons mutants
 
-        Ecosysteme eco = new Ecosysteme(new Aleatoire(), mesRegles);
+        Ecosysteme eco = new Ecosysteme(new Citadin(), mesRegles);
 
     }
 }
