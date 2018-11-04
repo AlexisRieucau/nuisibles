@@ -57,51 +57,6 @@ class Nuisible
                 typeDeNuisible[0].Deplacement(nuisibles, this);
                 break;
         }
-        /*switch (StaticRandom.tirage(0, 2))
-        {
-            case 0:
-                if (posX + vitesseX < 500)
-                {
-                    posFuturX = posX + vitesseX;
-                }
-                break;
-            case 1:
-                if (posX - vitesseX > 0)
-                {
-                    posFuturX = posX - vitesseX;
-                }
-                break;
-        }
-        switch (StaticRandom.tirage(0, 2))
-        {
-            case 0:
-                if (posY + vitesseY < 500)
-                {
-                    posFuturY = posY + vitesseY;
-                }
-                break;
-            case 1:
-                if (posY - vitesseY > 0)
-                {
-                    posFuturY = posY - vitesseY;
-                }
-                break;
-        }
-
-        for(int i = 0; i < vitesseX; i++)
-        {
-            posX += (float)Math.Round((posFuturX - posX) / vitesseX);
-            posY += (float)Math.Round((posFuturY - posY) / vitesseY);
-            foreach(Nuisible nuisible in nuisibles)
-            {
-                if(this.Collision(nuisible))
-                {
-                    return;
-                }
-            }
-        }*/
-
-
     }
 
     public bool Collision(Nuisible nuisible)

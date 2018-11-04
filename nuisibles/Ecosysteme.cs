@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 class Ecosysteme
 {
     List<Nuisible> nuisibles = new List<Nuisible>();
-    List<Nuisible> nuisiblesTampon = new List<Nuisible>();
-
+    
     public Ecosysteme(ITypeEcosysteme typeEco, List<IRegleGestion> mesRegles)
     {
+        List<Nuisible> nuisiblesTampon = new List<Nuisible>();
+
         typeEco.Peupler(nuisibles);
         nuisiblesTampon.AddRange(nuisibles); // on travaille sur le tampon et on remplace la liste nuisible
         for (int i = 0; i < 100000; i++)
@@ -27,7 +28,7 @@ class Ecosysteme
                         nuisiblesTampon.AddRange(regle.Regles(nuisiblesTampon, nuisible));
                         nuisiblesTampon.RemoveRange(0,200);
                     }
-                    //System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(10);
                 }
             }
             nuisibles.AddRange(nuisiblesTampon);

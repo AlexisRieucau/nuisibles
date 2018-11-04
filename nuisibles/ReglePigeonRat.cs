@@ -47,7 +47,7 @@ class ReglePigeonRat : IRegleGestion
 
 abstract class Decorator : IRegleGestion
 {
-    private IRegleGestion newRegle;
+    protected IRegleGestion newRegle;
     
     public Decorator(IRegleGestion newRegle)
     {
@@ -63,9 +63,8 @@ abstract class Decorator : IRegleGestion
 
 class PigeonMutant : Decorator
 {
-    public PigeonMutant(IRegleGestion newRegle)
-        :base(newRegle)
-    {      
+    public PigeonMutant(IRegleGestion newRegle) : base(newRegle)
+    {
     }
 
     public override List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible)
