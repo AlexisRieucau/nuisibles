@@ -57,7 +57,6 @@ abstract class Decorator : IRegleGestion
     virtual public List<Nuisible> Regles(List<Nuisible> nuisibles, Nuisible nuisible)
     {
         return newRegle.Regles(nuisibles, nuisible);
-        //return new PigeonMutant(newRegle).Regles(nuisibles, nuisible);
     }
 }
 
