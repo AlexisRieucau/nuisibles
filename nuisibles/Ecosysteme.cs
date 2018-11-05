@@ -16,10 +16,10 @@ class Ecosysteme
     public Ecosysteme(ITypeEcosysteme typeEco, List<IRegleGestion> mesRegles)
     {
         List<Nuisible> nuisiblesTampon = new List<Nuisible>();
-
+        
         typeEco.Peupler(nuisibles);
         nuisiblesTampon.AddRange(nuisibles); // on travaille sur le tampon et on remplace la liste nuisible
-        for (int i = 0; i < 100000; i++)
+        for (int i = 0; i < Constantes.nbCyclesSimulation; i++)
         {
             Console.Write("------ Cycle " + i + " ------\n\n");
             foreach (Nuisible nuisible in nuisibles)
@@ -31,7 +31,7 @@ class Ecosysteme
                     foreach (IRegleGestion regle in mesRegles)
                     {
                         nuisiblesTampon.AddRange(regle.Regles(nuisiblesTampon, nuisible));
-                        nuisiblesTampon.RemoveRange(0,200);
+                        nuisiblesTampon.RemoveRange(0,Constantes.nbNuisibles);
                     }
                     System.Threading.Thread.Sleep(10); // ralentis la simulation pour l'affichage en console
                 }

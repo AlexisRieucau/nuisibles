@@ -13,8 +13,8 @@ class Rat : Nuisible
     public Rat()
     {
         base.type = "rat";
-        base.vitesseX = 2.0F;
-        base.vitesseY = 2.0F;
+        base.vitesseX = Constantes.vitesseRat;
+        base.vitesseY = Constantes.vitesseRat;
     }
     /// <summary>
     /// Objet rat avec position d'apparition sur le terrain donnée
@@ -24,8 +24,8 @@ class Rat : Nuisible
     public Rat(float x, float y)
     {
         base.type = "rat";
-        base.vitesseX = 2.0F;
-        base.vitesseY = 2.0F;
+        base.vitesseX = Constantes.vitesseRat;
+        base.vitesseY = Constantes.vitesseRat;
         base.posX = x;
         base.posY = y;
     }

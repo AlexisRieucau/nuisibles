@@ -13,7 +13,7 @@ class UmbrellaCorp : ITypeEcosysteme
     public void Peupler(List<Nuisible> nuisibles)
     {
         int choix = StaticRandom.tirage(0, 3);
-        for (int i = 0; i < 200/2; i++)
+        for (int i = 0; i < Constantes.nbNuisibles/2; i++)
         {
             nuisibles.Add(new Zombie());
             choix = StaticRandom.tirage(0, 3);

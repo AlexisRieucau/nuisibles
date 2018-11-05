@@ -13,8 +13,8 @@ class Pigeon : Nuisible
     public Pigeon()
     {
         base.type = "pigeon";
-        base.vitesseX = 3.0F;
-        base.vitesseY = 3.0F;
+        base.vitesseX = Constantes.vitessePigeon;
+        base.vitesseY = Constantes.vitessePigeon;
     }
     /// <summary>
     /// Objet pigeon avec position d'apparition sur le terrain donnée
@@ -24,8 +24,8 @@ class Pigeon : Nuisible
     public Pigeon(float x, float y)
     {
         base.type = "pigeon";
-        base.vitesseX = 3.0F;
-        base.vitesseY = 3.0F;
+        base.vitesseX = Constantes.vitessePigeon;
+        base.vitesseY = Constantes.vitessePigeon;
         base.posX = x;
         base.posY = y;
     }

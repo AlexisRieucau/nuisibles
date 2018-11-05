@@ -17,7 +17,7 @@ class NuisibleNormal : ITypeNuisible
         switch (StaticRandom.tirage(0, 2))
         {
             case 0:
-                if (nuisible.posX + nuisible.vitesseX < 500)
+                if (nuisible.posX + nuisible.vitesseX < Constantes.tailleTerrainX)
                 {
                     nuisible.posFuturX = nuisible.posX + nuisible.vitesseX;
                 }
@@ -32,7 +32,7 @@ class NuisibleNormal : ITypeNuisible
         switch (StaticRandom.tirage(0, 2))
         {
             case 0:
-                if (nuisible.posY + nuisible.vitesseY < 500)
+                if (nuisible.posY + nuisible.vitesseY < Constantes.tailleTerrainY)
                 {
                     nuisible.posFuturY = nuisible.posY + nuisible.vitesseY;
                 }

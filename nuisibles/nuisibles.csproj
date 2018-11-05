@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Aleatoire.cs" />
     <Compile Include="Citadin.cs" />
+    <Compile Include="Constantes.cs" />
     <Compile Include="Ecosysteme.cs" />
     <Compile Include="Fenetre.cs">
       <SubType>Form</SubType>

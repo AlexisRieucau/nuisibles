@@ -12,8 +12,8 @@ class Zombie : Nuisible
     public Zombie()
     {
         base.type = "zombie";
-        base.vitesseX = 1.0F;
-        base.vitesseY = 1.0F;
+        base.vitesseX = Constantes.vitesseZombie;
+        base.vitesseY = Constantes.vitesseZombie;
     }
     /// <summary>
     /// Objet zombie avec position d'apparition sur le terrain donnée
@@ -23,8 +23,8 @@ class Zombie : Nuisible
     public Zombie(float x, float y)
     {
         base.type = "zombie";
-        base.vitesseX = 1.0F;
-        base.vitesseY = 1.0F;
+        base.vitesseX = Constantes.vitesseZombie;
+        base.vitesseY = Constantes.vitesseZombie;
         base.posX = x;
         base.posY = y;
     }

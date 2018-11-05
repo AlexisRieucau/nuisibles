@@ -19,29 +19,28 @@ class Nuisible
     public bool passif;
 
     private Random rand = new Random();
-    private readonly float critereDeCollision = 1.0F;
+    
 
     public Nuisible()
     {
-        posX = StaticRandom.tirage(0,500); // position x aleatoire sur le terrain
-        posY = StaticRandom.tirage(0,500); // position y aleatoire sur le terrain
+        posX = StaticRandom.tirage(0,Constantes.tailleTerrainX); // position x aleatoire sur le terrain
+        posY = StaticRandom.tirage(0,Constantes.tailleTerrainY); // position y aleatoire sur le terrain
         mort = false;
-        switch(StaticRandom.tirage(0,2)) // moitié de pigeons mutants
+        if (StaticRandom.tirage(0, 100) <= Constantes.pourcentMutants) // pourcentage de mutants
         {
-            case 0:
-                mutant = false;
-                break;
-            case 1:
-                mutant = true;
-                break;
-        }
-        if(StaticRandom.tirage(0,10) <= 8) // 20% de passifs
-        {
-            passif = false;
+            mutant = true;
         }
         else
         {
+            mutant = false;
+        }
+        if (StaticRandom.tirage(0, 100) <= Constantes.pourcentPassifs) // pourcentage de passifs
+        {
             passif = true;
+        }
+        else
+        {
+            passif = false;
         }
     }
 
@@ -70,7 +69,7 @@ class Nuisible
     /// <returns></returns>
     public bool Collision(Nuisible nuisible)
     {
-        return Math.Sqrt(Math.Pow(this.posX - nuisible.posX,2) + Math.Pow(this.posY - nuisible.posY, 2)) <= critereDeCollision;
+        return Math.Sqrt(Math.Pow(this.posX - nuisible.posX,2) + Math.Pow(this.posY - nuisible.posY, 2)) <= Constantes.critereDeCollision;
     }
 }
 

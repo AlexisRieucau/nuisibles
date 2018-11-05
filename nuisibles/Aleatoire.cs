@@ -13,7 +13,7 @@ class Aleatoire : ITypeEcosysteme
     public void Peupler(List<Nuisible> nuisibles)
     {
         int choix = StaticRandom.tirage(0, 3);
-        for (int i = 0; i < 200; i++)
+        for (int i = 0; i < Constantes.nbNuisibles; i++)
         {
             choix = StaticRandom.tirage(0, 3);
             switch (choix)
