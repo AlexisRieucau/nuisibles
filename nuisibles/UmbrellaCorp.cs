@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 class UmbrellaCorp : ITypeEcosysteme
 {
+    /// <summary>
+    /// rempli l'ecosysteme avec au moins 50% de zombies et le reste en rats et pigeons
+    /// </summary>
+    /// <param name="nuisibles">liste des nuisibles presents dans l'ecosysteme</param>
     public void Peupler(List<Nuisible> nuisibles)
     {
         int choix = StaticRandom.tirage(0, 3);

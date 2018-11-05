@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 class Aleatoire : ITypeEcosysteme
 {
+    /// <summary>
+    /// rempli l'ecosysteme avec tous les types de nuisibles en proportions aleatoires
+    /// </summary>
+    /// <param name="nuisibles">liste des nuisibles présents dans l'ecosysteme</param>
     public void Peupler(List<Nuisible> nuisibles)
     {
         int choix = StaticRandom.tirage(0, 3);

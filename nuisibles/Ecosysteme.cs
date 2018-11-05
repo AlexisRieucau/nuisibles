@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 class Ecosysteme
 {
     List<Nuisible> nuisibles = new List<Nuisible>();
-    
+
+    /// <summary>
+    /// définition du fonctionnement de l'ecosysteme
+    /// </summary>
+    /// <param name="typeEco">type d'ecosysteme (Aleatoire, UmbrellaCorp, Citadin)</param>
+    /// <param name="mesRegles">liste des regles qui définissent le comportant des habitants de l'ecosysteme</param>
     public Ecosysteme(ITypeEcosysteme typeEco, List<IRegleGestion> mesRegles)
     {
         List<Nuisible> nuisiblesTampon = new List<Nuisible>();
@@ -28,7 +33,7 @@ class Ecosysteme
                         nuisiblesTampon.AddRange(regle.Regles(nuisiblesTampon, nuisible));
                         nuisiblesTampon.RemoveRange(0,200);
                     }
-                    System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(10); // ralentis la simulation pour l'affichage en console
                 }
             }
             nuisibles.AddRange(nuisiblesTampon);

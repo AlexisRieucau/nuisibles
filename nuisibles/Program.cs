@@ -14,7 +14,7 @@ class Program
         //List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new ReglePigeonRat() }; // Ecosysteme normal
         List<IRegleGestion> mesRegles = new List<IRegleGestion> { new RegleZombie(), new PigeonMutant(new ReglePigeonRat()) }; // Pigeons mutants
 
-        Ecosysteme eco = new Ecosysteme(new Citadin(), mesRegles);
+        Ecosysteme eco = new Ecosysteme(new Citadin(), mesRegles); // on créé l'ecosysteme
 
     }
 }

@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 class NuisibleNormal : ITypeNuisible
 {
+    /// <summary>
+    /// definit la maniere dont se deplace le nuisible en parametre
+    /// </summary>
+    /// <param name="nuisibles">liste des nuisibles presents dans la simulation</param>
+    /// <param name="nuisible">nuisible qui doit se deplacer</param>
     public void Deplacement(List<Nuisible> nuisibles, Nuisible nuisible)
     {
+        // on commence par prévoir ou le nuisible va se déplacer
         switch (StaticRandom.tirage(0, 2))
         {
             case 0:
@@ -39,12 +45,14 @@ class NuisibleNormal : ITypeNuisible
                 break;
         }
 
+        //on fait se déplacer le nuisible
         for (int i = 0; i < nuisible.vitesseX; i++)
         {
             nuisible.posX += (float)Math.Round((nuisible.posFuturX - nuisible.posX) / nuisible.vitesseX);
             nuisible.posY += (float)Math.Round((nuisible.posFuturY - nuisible.posY) / nuisible.vitesseY);
             foreach (Nuisible element in nuisibles)
             {
+                // on vérifie a chaque instant si le nuisible en croise un autre
                 if (nuisible.Collision(element))
                 {
                     return;
